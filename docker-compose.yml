@@ -26,6 +26,8 @@ services:
  
     mysql:
         image: mysql
+        volumes:
+            - ./data/db:/var/lib/mysql
         ports:
             - 3306:3306
         depends_on:
