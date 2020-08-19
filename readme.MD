@@ -94,5 +94,5 @@ mysql> show databases;
 5 rows in set (0.00 sec)
 ```
 ### Nginx
-También es posible conectar al contenedor del servidor web, pero no es nada recomendable si no sabemos muy bien lo que hacemos. Este contenedor tiene la configuración de uso de PHP 8, el directorio que va a ejecutar los scripts de PHP (el mismo que está compartido con el Docker de PHP 8).  
-Cualquier configuración que sea necesario cambiar es obligatorio hacerlo en los archivos externos, que están en _docker/nginx/_. Si se cambia alguna configuración dentro del Docker directamente solo será efectiva hasta que el contenedor se apague. Cuando arranque de nuevo la configuración volverá a restablecerse.
+También es posible conectar al contenedor del servidor web, pero no es nada recomendable si no sabemos muy bien lo que hacemos. Este contenedor tiene la configuración de uso de PHP 8, el directorio que va a ejecutar los scripts de PHP (el mismo que está compartido con el Docker de PHP 8), etc.  
+Cualquier configuración que sea necesario cambiar es obligatorio hacerlo en los archivos externos, que están en _/docker/nginx/_. Si se cambia alguna configuración dentro del Docker directamente solo será efectiva hasta que el contenedor se apague. Cuando arranque de nuevo, la configuración volverá a restablecerse.
