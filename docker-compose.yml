@@ -5,7 +5,7 @@ services:
     php:
         #build:
         #    context: ./docker/php
-        image: hazardco/anaya-php8:v1
+        image: hazardco/anaya-php8:v1.0.1
         #ports:
         #    - 9000:9000
         volumes:
