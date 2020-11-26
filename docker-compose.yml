@@ -3,9 +3,12 @@ version: '3'
 services:
  
     php:
-        #build:
-        #    context: ./docker/php
-        image: php:rc-fpm-alpine3.12
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./www:/srv/www/api
+            - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
         ports:
             - 9000:9000
         volumes:
