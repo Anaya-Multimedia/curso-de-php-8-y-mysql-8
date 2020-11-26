@@ -5,9 +5,9 @@ services:
     php:
         #build:
         #    context: ./docker/php
-        image: hazardco/anaya-php8:v1.0.1
-        #ports:
-        #    - 9000:9000
+        image: php:rc-fpm-alpine3.12
+        ports:
+            - 9000:9000
         volumes:
             - ./www:/srv/www/api
             - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
