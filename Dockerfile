@@ -16,12 +16,17 @@ RUN apk add --no-cache \
 
 RUN apk add --update oniguruma-dev freetype-dev libpng-dev libjpeg-turbo-dev libxml2-dev autoconf g++ libtool make
 
+RUN apk add --no-cache zip libzip-dev
+
 RUN docker-php-ext-configure gd \
         --enable-gd \
         --with-freetype \
         --with-jpeg
 
-RUN docker-php-ext-install mysqli gd pdo_mysql opcache bcmath
+RUN docker-php-ext-configure zip
+
+
+RUN docker-php-ext-install mysqli gd pdo_mysql opcache bcmath zip
 
 RUN apk del autoconf g++ libtool make \
     && rm -rf /tmp/* /var/cache/apk/*
