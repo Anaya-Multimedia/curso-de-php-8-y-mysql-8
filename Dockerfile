@@ -31,5 +31,8 @@ RUN docker-php-ext-install mysqli gd pdo_mysql opcache bcmath zip
 RUN apk del autoconf g++ libtool make \
     && rm -rf /tmp/* /var/cache/apk/*
 
-# Install Composer
+# Instalar Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Instalar npm
+RUN apk add npm
