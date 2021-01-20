@@ -11,6 +11,7 @@ services:
             - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
         ports:
             - 9000:9000
+            - 9001:9001
         volumes:
             - ./www:/srv/www/api
             - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
