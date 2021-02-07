@@ -1,21 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as Icon from 'react-bootstrap-icons';
 
 
 export const DetalleUsuario = ({ usuario, setLoading }) => {
 
+    const notifyOk = (texto) => toast.success(texto, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    
+    const notifyError = (texto) => toast.error(texto, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+
     const onClickDelete = async (id) => {
         setLoading(true);
         const url= `http://localhost:8001/api/usuarios/${id}`;
-        console.log(url);
         const res = await axios.delete(url)
         .then(response=> {return response.data })
         .catch(error=>{ return error; })
         if (res.success) {
-          alert("ok");
+            notifyOk(res.message);
         } else {
-            alert("Error al borrar");
+            notifyError(res.message);
         }
         setLoading(false);
     }

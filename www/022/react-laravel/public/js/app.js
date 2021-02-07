@@ -2015,7 +2015,7 @@ var Cabecera = function Cabecera() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
         className: "navbar-brand",
         href: "#",
-        children: "Curso de PHP 8 y MySQL 8"
+        children: "Curso de PHP 8 y MySQL 68"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
         className: "navbar-toggler",
         type: "button",
@@ -2201,9 +2201,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap-icons */ "./node_modules/react-bootstrap-icons/dist/icons/pencil-square.js");
-/* harmony import */ var react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap-icons */ "./node_modules/react-bootstrap-icons/dist/icons/trash.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap-icons */ "./node_modules/react-bootstrap-icons/dist/icons/pencil-square.js");
+/* harmony import */ var react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap-icons */ "./node_modules/react-bootstrap-icons/dist/icons/trash.js");
 
 
 
@@ -2215,9 +2216,34 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var DetalleUsuario = function DetalleUsuario(_ref) {
   var usuario = _ref.usuario,
       setLoading = _ref.setLoading;
+
+  var notifyOk = function notifyOk(texto) {
+    return react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast.success(texto, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+  };
+
+  var notifyError = function notifyError(texto) {
+    return react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast.error(texto, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+  };
 
   var onClickDelete = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(id) {
@@ -2228,26 +2254,25 @@ var DetalleUsuario = function DetalleUsuario(_ref) {
             case 0:
               setLoading(true);
               url = "http://localhost:8001/api/usuarios/".concat(id);
-              console.log(url);
-              _context.next = 5;
+              _context.next = 4;
               return axios["delete"](url).then(function (response) {
                 return response.data;
               })["catch"](function (error) {
                 return error;
               });
 
-            case 5:
+            case 4:
               res = _context.sent;
 
               if (res.success) {
-                alert("ok");
+                notifyOk(res.message);
               } else {
-                alert("Error al borrar");
+                notifyError(res.message);
               }
 
               setLoading(false);
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -2272,17 +2297,17 @@ var DetalleUsuario = function DetalleUsuario(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("td", {
       children: usuario.telefono
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("td", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         to: "/usuarios/".concat(usuario.id),
         className: "btn btn-light",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_4__.default, {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__.default, {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
         href: "#",
         className: "btn btn-danger",
         onClick: function onClick() {
           return onClickDelete(usuario.id);
         },
-        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_5__.default, {}), " "]
+        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_icons__WEBPACK_IMPORTED_MODULE_6__.default, {}), " "]
       })]
     })]
   });

@@ -8,8 +8,9 @@ import Nuevo from "./usuarios/Nuevo";
 import Edit from "./usuarios/Edit";
 import { Home } from './usuarios/Home';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 import {
   BrowserRouter as Router,
@@ -23,10 +24,8 @@ function Main(){
       <ToastContainer />
       <Cabecera/>
       <main role="main">
-     
-
         <Switch>
-        <Route exact path="/usuarios/" exact component={Home} />
+          <Route exact path="/usuarios/" exact component={Home} />
           <Route path="/usuarios/list" exact component={List} />
           <Route path="/usuarios/nuevo"  component={Nuevo} />
           <Route path="/usuarios/:id" component={Edit} />

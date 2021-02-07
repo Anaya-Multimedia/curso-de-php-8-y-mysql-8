@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router-dom';
 
@@ -25,9 +25,9 @@ function Nuevo(){
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    });
+  });
 
-    const notifyError = (texto) => toast.error(texto, {
+  const notifyError = (texto) => toast.error(texto, {
       position: "top-left",
       autoClose: 5000,
       hideProgressBar: false,
@@ -35,7 +35,7 @@ function Nuevo(){
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      });
+  });
   
   const handleChange = (e) => {
     setUsuario({
